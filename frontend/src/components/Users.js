@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'https://miniature-parakeet-5vr54x94x66f7pqg-8000.app.github.dev';
+
 function Users() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch('https://miniature-parakeet-5vr54x94x66f7pqg-8000.app.github.dev/api/users/')
+    fetch(`${API_BASE_URL}/api/users/`)
       .then(response => response.json())
       .then(data => setUsers(data))
       .catch(error => console.error('Error fetching users:', error));
